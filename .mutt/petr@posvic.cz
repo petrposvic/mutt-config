@@ -1,0 +1,33 @@
+color status red default
+
+# Me
+set from = "petr@posvic.cz"
+set realname = "Petr Pošvic"
+
+# My credentials
+set smtp_url = "smtp://petr@posvic.cz@smtp.gmail.com:587/"
+set smtp_pass = "secret"
+set imap_user = "petr@posvic.cz"
+set imap_pass = "secret"
+
+# My mailboxes
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Koncepty"
+unset record
+
+bind editor <space> noop
+macro index e "<save-message>=[Gmail]/Všechny zprávy<enter><enter>" "Archive"
+macro index d "<save-message>=[Gmail]/Koš<enter><enter>" "Trash"
+macro pager e "<save-message>=[Gmail]/Všechny zprávy<enter><enter>q" "Archive"
+macro pager d "<save-message>=[Gmail]/Koš<enter><enter>q" "Trash"
+
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/Všechny zprávy<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Odeslaná pošta<enter>" "Go to sent messages"
+macro index gd "<change-folder>=[Gmail]/Koncepty<enter>" "Go to drafts"
+
+# Where to put the stuff
+# set header_cache = "~/.mutt/cache/headers"
+# set message_cachedir = "~/.mutt/cache/bodies"
+# set certificate_file = "~/.mutt/certificates"

@@ -1,0 +1,42 @@
+folder-hook 'petr@posvic.cz' 'source ~/.mutt/petr@posvic.cz'
+folder-hook 'petr.posvic@example.cz' 'source ~/.mutt/petr.posvic@example.cz'
+
+# Macros for switching accounts
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/petr@posvic.cz<enter><change-folder>!<enter>'
+macro index <f6> '<sync-mailbox><enter-command>source ~/.mutt/petr.posvic@example.cz<enter><change-folder>!<enter>'
+
+# Global macros
+macro pager U "<set-flag>Nq"
+macro pager j "<next-line>"
+macro pager k "<previous-line>"
+macro pager <down> "<next-line>"
+macro pager <up> "<previous-line>"
+
+# Fetch mail shortcut
+bind index G imap-fetch-mail
+
+source ~/.mutt/petr.posvic@example.cz
+source ~/.mutt/aliases.txt
+
+#macro index <F5> 'source ~/.mutt/petr@posvic.cz!'
+#macro index <F6> 'source ~/.mutt/petr.posvic@example.cz!'
+
+# Etc
+set mail_check = 30
+set beep_new
+set move = no
+set imap_keepalive = 900
+set sort = threads
+set sort_aux = reverse-date-received
+set editor = "vim"
+set pager_stop = yes # Stop at the end instead of displaying next mail
+set alias_file = ~/.mutt/aliases.txt
+
+# GnuPG bootstrap
+# source ~/.mutt/gpg.rc
+
+set new_mail_command="notify-send --icon='/home/santiago/Pictures/neomutt.png' 'New Email' '%n new messages, %u unread.' &"
+
+alternative_order text/plain text/html
+auto_view text/html
+

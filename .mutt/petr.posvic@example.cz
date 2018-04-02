@@ -1,0 +1,28 @@
+color status cyan default
+
+# Me
+set from = "petr.posvic@example.cz"
+set realname = "Petr Pošvic"
+
+# My credentials
+set smtp_url = "smtp://petr.posvic@example.cz@mail.example.cz:587/"
+set smtp_pass = "secret"
+set imap_user = "petr.posvic@example.cz"
+set imap_pass = "secret"
+
+# My mailboxes
+set folder = "imaps://mail.example.cz:993"
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set record = "+Sent"
+
+bind editor <space> noop
+macro index e "<save-message>=Archive<enter><enter>" "Archive"
+macro index d "<save-message>=Trash<enter><enter>" "Trash"
+macro pager e "<save-message>=Archive<enter><enter>q" "Archive"
+macro pager d "<save-message>=Trash<enter><enter>q" "Trash"
+
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=INBOX<enter>" "Go to all mail"
+macro index gs "<change-folder>=Sent<enter>" "Go to sent messages"
+macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"
